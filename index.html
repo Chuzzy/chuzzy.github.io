@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>:^)</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="syntaxhighlightertheme.css">
+</head>
+
+<body>
+    <div style="padding: 0px 10px;">
+        <h1 style="font-size: 6em; text-align: center; width: 5" class="spin">:^)</h1>
+
+        <p>Filler text goes here. Text text words words words.</p>
+        <p><a href="https://thimbleprojects.org/chuzzy/185290/">Play some chess right now, click right here.</a></p>
+
+        <p>Want to see how I made this cool spinning face and scrolling background? Ok, here you go:</p>
+
+        <pre class="brush: css" style="font-family: 'Fira Mono', monospace;">
+            @keyframes body-animated {
+                from { background-position: 0 0; }
+                to { background-position: 100% 0; }
+            }
+
+            @keyframes spin {
+                from { transform: rotateZ(0deg); }
+                to { transform: rotateZ(360deg); }
+            }
+
+            body {
+                background-image: url("dorito.png");
+                background-size: 100px;
+                animation: body-animated 40s linear infinite;
+            }
+
+            .spin {
+                text-align: center;
+                animation: spin 4s linear infinite;
+            }
+        </pre>
+
+        <p>I've run out of things to say. I'm bored. Let's play a game. <br> How many faces can you see?</p>
+
+        <div id="dorito-faces"></div>
+
+        <script>
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min)) + min;
+            }
+
+            var randomNumber = getRandomInt(50, 1000);
+            var doritoString = "";
+            for (var i = 0; i < randomNumber; i++) {
+                doritoString += ":^) "
+            }
+            
+            var doritoDiv = document.getElementById("dorito-faces");
+            doritoDiv.innerHTML = doritoString;
+
+            function checkAnswer() {
+                var answer = document.getElementById("answer-box").value;
+                if (answer == randomNumber)
+                    alert("Correct :^)");
+                else if (answer > randomNumber)
+                    alert("Too ＢＩＧ");
+                else if (answer < randomNumber)
+                    alert("Too ˢᵐᵃˡˡ");
+                else
+                    alert("Can you enter a real number please")
+            }
+        </script>
+
+        <input id="answer-box" type="text">
+        <button onclick="checkAnswer();">Submit</button>
+    </div>
+    <script src="syntaxhighlighter.js"></script>
+</body>
+
+</html>

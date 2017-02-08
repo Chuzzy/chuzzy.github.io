@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Mono');
+
+@keyframes body-animated {
+    from { background-position: 0 0;}
+    to { background-position: 100% 0;}
+}
+
+@keyframes spin {
+    from { transform: rotateZ(0deg); }
+    to { transform: rotateZ(360deg); }
+}
+
+body {
+    background-image: url("dorito.png");
+    background-size: 100px;
+    font-family: "Fira Sans", sans-serif;
+    animation: body-animated 40s linear infinite;
+}
+
+.spin {
+    animation: spin 4s linear infinite;
+}
+
+code {
+    font-family: "Fira Mono", monospace;
+}
